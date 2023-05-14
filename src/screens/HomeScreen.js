@@ -8,17 +8,17 @@ import Ionicons from 'react-native-vector-icons/dist/Ionicons';
 import FontAwesome from 'react-native-vector-icons/dist/FontAwesome';
 import AntDesign from 'react-native-vector-icons/dist/AntDesign';
 
-import IMG_CAKE from '../assets/images/categories/cake.png'
-import IMG_PIZZA from '../assets/images/categories/pizza.png'
-import IMG_DOSA from '../assets/images/categories/dosa.png'
-import IMG_CHOLE from '../assets/images/categories/chole.png'
-import IMG_SANDWITCH from '../assets/images/categories/sandwitch.png'
+import IMG_CAKE from '../assets/images/categories/cake.jpg'
+import IMG_PIZZA from '../assets/images/categories/pizza.jpg'
+import IMG_DOSA from '../assets/images/categories/dosa.jpg'
+import IMG_CHOLE from '../assets/images/categories/chole.jpg'
+import IMG_SANDWITCH from '../assets/images/categories/sandwitch.jpg'
 
-import IMG_WHITEDOSA from '../assets/images/restaurant/white-dosa.png'
-import IMG_PIZZAHOT from '../assets/images/restaurant/pizza-hut.png'
-import IMG_DOSA1 from '../assets/images/restaurant/dosa.png'
-import IMG_DOMINOSPIZZA from "../assets/images/restaurant/domino's-pizza.png"
-import IMG_CURRY from '../assets/images/restaurant/curry.png'
+import IMG_WHITEDOSA from '../assets/images/restaurant/white-dosa.jpg'
+import IMG_PIZZAHOT from '../assets/images/restaurant/pizza-hut.jpg'
+import IMG_DOSA1 from '../assets/images/restaurant/dosa.jpg'
+import IMG_DOMINOSPIZZA from "../assets/images/restaurant/domino's-pizza.jpg"
+import IMG_CURRY from '../assets/images/restaurant/curry.jpg'
 import RestaurantComponent from '../components/RestaurantComponent';
 
 const { width, height } = Dimensions.get('window')
@@ -152,7 +152,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     backgroundColor: COLORS.WHITE,
     borderWidth: 1,
-    borderRadius: 5,
     borderColor: COLORS.WHITE,
     elevation: 5
   },

@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { COLORS } from '../constants/Colors'
-import IMG_CHICKEN from '../assets/images/foods/chicken.png'
+import IMG_CHICKEN from '../assets/images/foods/chicken.jpg'
 import AntDesign from 'react-native-vector-icons/dist/AntDesign';
 
 const FoodComponent = ({ foodItem }) => {
@@ -17,10 +17,8 @@ const FoodComponent = ({ foodItem }) => {
         <View className="">
           <Text style={styles.remainingRestaurantText}>{foodItem.title}</Text>
           <View className="flex-row items-center">
-            <View>
-              <AntDesign name="star" size={10} color={COLORS.RED} />
-            </View>
-            <Text className="pl-1">{foodItem.orderTime}</Text>
+            <AntDesign name="star" size={10} color={COLORS.RED} style={{ marginTop: -4 }} />
+            <Text className="pl-1" style={{ color: COLORS.BLACK, fontFamily: "Poppins-Medium" }}>{foodItem.orderTime}</Text>
           </View>
           <Text>{foodItem.tags}</Text>
           <Text>{foodItem.restLocaion}  •{foodItem.distance}</Text>
@@ -51,7 +49,7 @@ const styles = StyleSheet.create({
   remainingRestaurantText: {
     fontSize: 22,
     color: COLORS.BLACK,
-    fontFamily: "Poppins-Bold", 
+    fontFamily: "Poppins-Bold",
   },
   restaurantImage: {
     height: 180,

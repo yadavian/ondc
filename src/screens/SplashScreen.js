@@ -19,7 +19,7 @@ const SplashScreen = () => {
         <>
             <StatusBar backgroundColor={COLORS.RED} barStyle="light-content"/>
             <View style={styles.container} className="flex-col justify-center items-center">
-                <Text className="text-white font-extrabold italic text-9xl" style={{fontFamily : "Poppins"}} >ONGC</Text>
+                <Text className="text-white font-extrabold italic text-9xl" style={{fontFamily : "Poppins"}} >ONDC</Text>
             </View>
         </>
     )

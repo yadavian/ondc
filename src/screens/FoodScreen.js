@@ -5,12 +5,12 @@ import { COLORS } from '../constants/Colors';
 import FoodComponent from '../components/FoodComponent';
 
 
-import IMG_CHICKEN2 from '../assets/images/foods/chicken2.png'
+import IMG_CHICKEN2 from '../assets/images/foods/chicken2.jpg'
 import IMG_FOOD from '../assets/images/foods/food.jpg'
-import IMG_FOOD1 from '../assets/images/foods/food1.png'
+import IMG_FOOD1 from '../assets/images/foods/food1.jpg'
 import IMG_FOOD2 from '../assets/images/foods/food2.jpg'
-import IMG_FOOD3 from '../assets/images/foods/food3.png'
-import IMG_FOOD5 from '../assets/images/foods/food5.png'
+import IMG_FOOD3 from '../assets/images/foods/food3.jpg'
+import IMG_FOOD5 from '../assets/images/foods/food5.jpg'
 
 
 const FoodScreen = () => {
@@ -44,9 +44,8 @@ const FoodScreen = () => {
                         data={foodData}
                         renderItem={({ item }) => <FoodComponent foodItem={item} />}
                         keyExtractor={(item) => item.id}
-                        contentContainerStyle={{ paddingBottom: 15 }}
                         showsVerticalScrollIndicator={false}
-                        contentContainerStyle={{ paddingHorizontal: 15}}
+                        contentContainerStyle={{ paddingHorizontal: 15,paddingBottom: 15}}
                     />
 
                 </View>

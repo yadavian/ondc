@@ -19,7 +19,7 @@ const LoginScreen = ({ navigation }) => {
 
     return (
         <>
-            <StatusBar backgroundColor={COLORS.WHITE}  barStyle="dark-content" />
+            <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
             <View className={`flex-1 bg-[${COLORS.WHITE}] `}>
                 <View style={{ flex: 0.5, backgroundColor: "white" }} className="flex-col items-center pt-16">
                     <Image
@@ -42,17 +42,23 @@ const LoginScreen = ({ navigation }) => {
                     />
                     <TouchableOpacity
                         style={styles.continueButton}
-                        onPress={() => navigation.navigate('OTPVerification')}>
+                        onPress={() => navigation.navigate('OTPVerification')}
+                    >
                         {/* <Icon name="rocket" size={30} color="#900" /> */}
                         <Text className="text-white text-2xl" style={{ fontFamily: 'Poppins-ExtraBold' }}>Continue</Text>
                     </TouchableOpacity>
                     <View style={styles.hrLine} />
+                    
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('OTPVerification')}>
+                        <Image
+                            source={IMG_google}
+                            resizeMethod='auto'
+                            style={styles.googleIcon}
 
-                    <Image
-                        source={IMG_google}
-                        resizeMethod='auto'
-                        style={styles.googleIcon}
-                    />
+                        />
+                    </TouchableOpacity>
+
 
                 </View>
             </View>
@@ -104,12 +110,12 @@ const styles = StyleSheet.create({
         width: "100%",
         marginVertical: 25,
     },
-    googleIcon : {
-        height : 50,
-        width : 50,
-        borderRadius : 50,
-        borderColor : COLORS.LIGHT_GREY,
-        borderWidth : 1,
-        padding : 15
+    googleIcon: {
+        height: 50,
+        width: 50,
+        borderRadius: 50,
+        borderColor: COLORS.LIGHT_GREY,
+        borderWidth: 1,
+        padding: 15
     }
 })

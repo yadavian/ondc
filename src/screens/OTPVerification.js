@@ -10,6 +10,10 @@ const OTPVerification = ({ navigation }) => {
     //     })
     // }, [])
 
+    setTimeout(() => {
+        navigation.navigate('HomeScreen')
+    }, 1000);
+
     return (
 
         <>
