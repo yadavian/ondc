@@ -1,4 +1,4 @@
-import { StatusBar, StyleSheet, Text, View, TextInput, Image, ScrollView, Dimensions } from 'react-native'
+import { StatusBar, StyleSheet, Text, View, TextInput, FlatList, Image, ScrollView, Dimensions } from 'react-native'
 import React, { useEffect } from 'react'
 import { COLORS } from '../constants/Colors'
 import CategoryComponent from '../components/CategoryComponent';
@@ -31,6 +31,22 @@ const HomeScreen = ({ navigation }) => {
     })
   }, [])
 
+  let categoryData = [
+    { id: 1, title: "Cake", imgSrc: IMG_CAKE },
+    { id: 2, title: "dosa", imgSrc: IMG_DOSA },
+    { id: 3, title: "Sandwitch", imgSrc: IMG_SANDWITCH },
+    { id: 4, title: "Chole", imgSrc: IMG_CHOLE },
+    { id: 5, title: "Chole", imgSrc: IMG_CAKE },
+  ]
+
+  let soringData = [
+    { id: 1, title: "Sort" },
+    { id: 2, title: "Nearest" },
+    { id: 3, title: "Great Offers" },
+    { id: 4, title: "Rating 4.0+" },
+    { id: 5, title: "Pure Veg" },
+    { id: 6, title: "More" },
+  ]
 
   return (
 
@@ -70,31 +86,31 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.categoryContainer} className="flex-col items-center justify-center" >
           <Text> WHATS'S ON YOUT MIND</Text>
           <View style={styles.categoryBox} className="flex-row items-center justify-center">
-            <CategoryComponent title="Cake" imgSrc={IMG_CAKE} />
-            <CategoryComponent title="Pizza" imgSrc={IMG_PIZZA} />
-            <CategoryComponent title="dosa" imgSrc={IMG_DOSA} />
-            <CategoryComponent title="Sandwitch" imgSrc={IMG_SANDWITCH} />
-            <CategoryComponent title="Chole" imgSrc={IMG_CHOLE} />
+
+            <FlatList horizontal
+              data={categoryData}
+              renderItem={({ item }) => <CategoryComponent title={item.title} imgSrc={item.imgSrc} />}
+              keyExtractor={(item) => item.id}
+            />
           </View>
         </View>
 
         {/* ALL RESTURANRTS */}
-        <View style={styles.allResurant}>
-          <Text className='text-center mb-6'>ALL RESTURANT</Text>
+        <View style={{}}>
+          <Text className='text-center mb-6' style={{color : COLORS.BLACK, fontFamily:"Poppins-Medium"}}>ALL RESTURANT</Text>
 
           {/* SORTING SECTION */}
-          <View   className="flex-row items-center" >
-            <SortComponent title="Sort" />
-            <SortComponent title="Nearest" />
-            <SortComponent title="Great Offers" />
-            <SortComponent title="Rating 4.0+" />
-            <SortComponent title="Pure Veg" />
-            <SortComponent title="More" />
+          <View className="px-3">
+            <FlatList horizontal
+              data={soringData}
+              renderItem={({ item }) => <SortComponent title={item.title} />}
+              keyExtractor={(item) => item.id}
+              contentContainerStyle={{paddingBottom : 15}}
+            />
           </View>
 
           {/* FOODS CONTAINER */}
           <View style={styles.restaurantContainer}>
-
             <RestaurantComponent title="Pizza Hut" imgSrc={IMG_PIZZAHOT} />
             <RestaurantComponent title="PLS Restaurant" imgSrc={IMG_DOMINOSPIZZA} />
             <RestaurantComponent title="McDonald's" imgSrc={IMG_CURRY} />
@@ -124,8 +140,8 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 15,
-    fontFamily: "Poppins",
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
+    color : COLORS.BLACK
   },
   searchContainer: {
     // backgroundColor: COLORS.RED,
@@ -146,15 +162,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   categoryContainer: {
-    marginTop: 50,
+    marginTop: 30,
     paddingHorizontal: 15,
   },
   categoryBox: {
-    marginVertical: 20
-  }, 
+    marginTop: 20
+  },
   restaurantContainer: {
     marginHorizontal: 15,
-    marginTop: 15
+    marginTop: 0,
+    backgroundColor: COLORS.LIGHT_GREY1
   },
 
 })

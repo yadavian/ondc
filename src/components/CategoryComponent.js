@@ -3,7 +3,6 @@ import React from 'react'
 import { COLORS } from '../constants/Colors'
 
 const CategoryComponent = (props) => {
-    console.log('props', props)
     const { imgSrc, title } = props;
     return (
         <View style={styles.categoriesItem}>
@@ -29,7 +28,7 @@ const styles = StyleSheet.create({
         padding: 15
     },
     categoriesItem:{
-        marginVertical : 20,
+        marginTop : 20,
         marginHorizontal : 12
     }
 })

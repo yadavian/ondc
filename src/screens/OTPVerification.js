@@ -15,8 +15,8 @@ const OTPVerification = ({ navigation }) => {
         <>
             <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
             <View className='flex-1 items-center justify-start py-10' style={styles.container}>
-                <Text className="py-1">We have sent a verification code to</Text>
-                <Text className="py-1" style={{ fontFamily: 'Poppins-Bold' }}>+91-9594371397</Text>
+                <Text className="py-1 " style={{ color: "black" }}>We have sent a verification code to</Text>
+                <Text className="py-1 font-bold text-2xl" style={{ color: "black" }} >+91-9594371397</Text>
                 <TextInput
                     style={styles.input}
                     // onChangeText={setNumber}
@@ -33,7 +33,7 @@ const OTPVerification = ({ navigation }) => {
                     <Text className="text-white" style={styles.buttonText}>Resend SMS in 15</Text>
                 </TouchableOpacity>
                 <Text className="py-10" style={{ fontFamily: 'Poppins-Bold', color: COLORS.RED }}>Try other login methods</Text>
-            </View>
+            </View >
         </>
     )
 }
@@ -65,8 +65,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    buttonText:{
-        fontSize : 22,
-        fontFamily : 'Poppins-Bold'
+    buttonText: {
+        fontSize: 22,
+        fontFamily: 'Poppins-Bold'
     }
 })
