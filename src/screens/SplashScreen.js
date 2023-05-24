@@ -10,7 +10,7 @@ const SplashScreen = () => {
             headerShown: false
         })
         setTimeout(() => {
-            navigation.navigate('LoginScreen')
+            navigation.navigate('HomeScreen')
         }, 1000);
     }, [])
 

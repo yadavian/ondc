@@ -57,5 +57,7 @@ const FoodScreen = () => {
 export default FoodScreen
 
 const styles = StyleSheet.create({
-
+    remainingRestaurantText : {
+        color : COLORS.BLACK
+    }
 })

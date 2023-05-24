@@ -5,7 +5,6 @@ import IMG_CHICKEN from '../assets/images/foods/chicken.jpg'
 import AntDesign from 'react-native-vector-icons/dist/AntDesign';
 
 const FoodComponent = ({ foodItem }) => {
-  console.log('foodItem', foodItem)
   return (
     <View style={styles.foodItem}>
       <Image
