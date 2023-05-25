@@ -14,12 +14,12 @@ import IMG_FOOD5 from '../assets/images/foods/food5.jpg'
 const FoodScreen = () => {
 
     let foodData = [
-        { id: 1, title: "Chainese Wok", orderTime: "22 min", tags: "Chinese, Asian, Tibetan, Desserts", restLocaion: "Mulund East", distance: "0.9 km", isFreeDelivery: true, imgSrc: IMG_CHICKEN2 },
-        { id: 2, title: "Paneer biryani", orderTime: "40 min", tags: "Chinese, Asian, Tibetan", restLocaion: "Bhandup East", distance: "10 km", isFreeDelivery: true, imgSrc: IMG_FOOD },
-        { id: 3, title: "Veg biryani", orderTime: "25 min", tags: "Chinese, Asian, Tibetan", restLocaion: "Nahur East", distance: "3 km", isFreeDelivery: true, imgSrc: IMG_FOOD1 },
-        { id: 4, title: "Chicken Tikka Biryani 1 Containe", orderTime: "10 min", tags: "Chinese, Desserts", restLocaion: "Ghatkopar East", distance: "0.9 km", isFreeDelivery: true, imgSrc: IMG_FOOD2 },
-        { id: 5, title: "Paneer Tikka Biryani 1 Container", orderTime: "32 min", tags: "Chinese, Asian, Desserts", restLocaion: "Kurla East", distance: "0.9 km", isFreeDelivery: true, imgSrc: IMG_FOOD3 },
-        { id: 6, title: "Chicken Dum Biryani 1 Container", orderTime: "50 min", tags: "Asian, Tibetan, Desserts", restLocaion: "Parel East", distance: "0.9 km", isFreeDelivery: true, imgSrc: IMG_FOOD5 },
+        { id: 1, title: "Chainese Wok", orderTime: "22 min", tags: "American, Indian", restLocaion: "Mulund East", distance: "0.9 km", isFreeDelivery: true, imgSrc: IMG_CHICKEN2 },
+        { id: 2, title: "Paneer biryani", orderTime: "40 min", tags: "Italian, Tibetan", restLocaion: "Bhandup East", distance: "10 km", isFreeDelivery: true, imgSrc: IMG_FOOD },
+        { id: 3, title: "Veg biryani", orderTime: "25 min", tags: " Asian, Tibetan", restLocaion: "Nahur East", distance: "3 km", isFreeDelivery: true, imgSrc: IMG_FOOD1 },
+        { id: 4, title: "Chicken Tikka", orderTime: "10 min", tags: "Jerman, Desserts", restLocaion: "Ghatkopar East", distance: "0.9 km", isFreeDelivery: true, imgSrc: IMG_FOOD2 },
+        { id: 5, title: "Paneer Tikka", orderTime: "32 min", tags: "Indian, Asian", restLocaion: "Kurla East", distance: "0.9 km", isFreeDelivery: true, imgSrc: IMG_FOOD3 },
+        { id: 6, title: "Chicken Dum", orderTime: "50 min", tags: "Asian, Indian", restLocaion: "Parel East", distance: "0.9 km", isFreeDelivery: true, imgSrc: IMG_FOOD5 },
     ]
 
     return (
@@ -43,7 +43,7 @@ const FoodScreen = () => {
                         renderItem={({ item }) => <FoodComponent foodItem={item} />}
                         keyExtractor={(item) => item.id}
                         showsVerticalScrollIndicator={false}
-                        contentContainerStyle={{ paddingHorizontal: 15,paddingBottom: 15}}
+                        contentContainerStyle={{ paddingHorizontal: 15, paddingBottom: 15 }}
                     />
 
                 </View>
@@ -55,7 +55,7 @@ const FoodScreen = () => {
 export default FoodScreen
 
 const styles = StyleSheet.create({
-    remainingRestaurantText : {
-        color : COLORS.BLACK
+    remainingRestaurantText: {
+        color: COLORS.BLACK
     }
 })

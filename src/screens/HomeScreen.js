@@ -78,7 +78,7 @@ const HomeScreen = ({ navigation }) => {
           <View style={styles.serachView} className="flex-row items-center justify-between">
             <TextInput
               style={styles.input}
-              // onChangeText={setNumber}
+              onChangeText={() => navigation.navigate('FoodScreen')}
               // value={number}
               placeholder="Search for dishes, resturants & groceries"
               // keyboardType="numeric"

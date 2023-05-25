@@ -10,6 +10,7 @@ import FoodScreen from '../screens/FoodScreen';
 import CartScreen from '../screens/CartScreen';
 import AddressScreen from '../screens/AddressScreen';
 import PaymentScreen from '../screens/PaymentScreen';
+import SorryScreen from '../screens/SorryScreen';
 
 
 const MainNavigator = () => {
@@ -25,6 +26,7 @@ const MainNavigator = () => {
                 <Stack.Screen name="CartScreen" component={CartScreen} />
                 <Stack.Screen name="AddressScreen" component={AddressScreen} />
                 <Stack.Screen name="PaymentScreen" component={PaymentScreen} />
+                <Stack.Screen name="SorryScreen" component={SorryScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     )
