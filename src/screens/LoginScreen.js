@@ -3,10 +3,9 @@ import React, { useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import { COLORS } from '../constants/Colors';
-import IMG_Zomato from '../assets/images/splash/zomato.jpg'
-import IMG_OndcRed from '../assets/images/splash/ondc_red.jpg'
-import IMG_Ondc from '../assets/images/splash/ondc.jpg'
+import IMG_Ondc from '../assets/images/icons/logo.jpg'
 import IMG_google from '../assets/images/icons/google.jpg'
+import { TEXTS } from '../constants/TEXTS';
 
 
 const LoginScreen = ({ navigation }) => {
@@ -15,6 +14,9 @@ const LoginScreen = ({ navigation }) => {
         navigation.setOptions({
             headerShown: false
         })
+        setTimeout(() => {
+            navigation.navigate('HomeScreen')
+        }, 1000);
     }, [])
 
     return (
@@ -30,7 +32,7 @@ const LoginScreen = ({ navigation }) => {
                 </View>
                 <View style={styles.container} className="flex-col items-center px-12">
                     <View style={styles.hrLine} />
-                    <Text>Login in or Sign up</Text>
+                    <Text>{TEXTS.loginOrSign}</Text>
                     <TextInput
                         style={styles.input}
                         // onChangeText={setNumber}
@@ -45,17 +47,17 @@ const LoginScreen = ({ navigation }) => {
                         onPress={() => navigation.navigate('OTPVerification')}
                     >
                         {/* <Icon name="rocket" size={30} color="#900" /> */}
-                        <Text className="text-white text-2xl" style={{ fontFamily: 'Poppins-ExtraBold' }}>Continue</Text>
+                        <Text className="text-white text-2xl" style={{ fontFamily: 'Poppins-ExtraBold' }}>{TEXTS.continue}</Text>
                     </TouchableOpacity>
+
                     <View style={styles.hrLine} />
-                    
+
                     <TouchableOpacity
                         onPress={() => navigation.navigate('OTPVerification')}>
                         <Image
                             source={IMG_google}
                             resizeMethod='auto'
                             style={styles.googleIcon}
-
                         />
                     </TouchableOpacity>
 
@@ -82,8 +84,8 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.WHITE
     },
     imgBanner: {
-        width: "100%",
-        height: "100%",
+        width: "80%",
+        height: "80%",
     },
     input: {
         height: 60,
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: COLORS.LIGHT_GREY,
         width: "100%",
-        marginVertical: 25,
+        marginBottom: 25,
     },
     googleIcon: {
         height: 50,

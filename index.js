@@ -10,7 +10,7 @@ import { COLORS } from './src/constants/Colors';
 if (Text.defaultProps == null) Text.defaultProps = {};
 
 Text.defaultProps.style = {
-    fontFamily: 'Poppins-Medium',
+    fontFamily: 'Poppins-Regular',
     color: COLORS.BLACK
 }
 

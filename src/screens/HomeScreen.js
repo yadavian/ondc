@@ -1,4 +1,4 @@
-import { StatusBar, StyleSheet, Text, View, TextInput, FlatList, Image, ScrollView, Dimensions } from 'react-native'
+import { StatusBar, StyleSheet, Text, View, TextInput, FlatList, ScrollView, Dimensions } from 'react-native'
 import React, { useEffect } from 'react'
 import { COLORS } from '../constants/Colors'
 import CategoryComponent from '../components/CategoryComponent';
@@ -6,7 +6,6 @@ import SortComponent from '../components/SortComponent';
 
 import Ionicons from 'react-native-vector-icons/dist/Ionicons';
 import FontAwesome from 'react-native-vector-icons/dist/FontAwesome';
-import AntDesign from 'react-native-vector-icons/dist/AntDesign';
 
 import IMG_CAKE from '../assets/images/categories/cake.jpg'
 import IMG_PIZZA from '../assets/images/categories/pizza.jpg'
@@ -14,10 +13,10 @@ import IMG_DOSA from '../assets/images/categories/dosa.jpg'
 import IMG_CHOLE from '../assets/images/categories/chole.jpg'
 import IMG_SANDWITCH from '../assets/images/categories/sandwitch.jpg'
 
-import IMG_WHITEDOSA from '../assets/images/restaurant/white-dosa.jpg'
-import IMG_PIZZAHOT from '../assets/images/restaurant/pizza-hut.jpg'
+import IMG_WHITEDOSA from '../assets/images/restaurant/white_dosa.jpg'
+import IMG_PIZZAHOT from '../assets/images/restaurant/pizza_hut.jpg'
 import IMG_DOSA1 from '../assets/images/restaurant/dosa.jpg'
-import IMG_DOMINOSPIZZA from "../assets/images/restaurant/domino's-pizza.jpg"
+import IMG_DOMINOSPIZZA from "../assets/images/restaurant/domino_s_pizza.jpg"
 import IMG_CURRY from '../assets/images/restaurant/curry.jpg'
 import RestaurantComponent from '../components/RestaurantComponent';
 
@@ -36,7 +35,15 @@ const HomeScreen = ({ navigation }) => {
     { id: 2, title: "dosa", imgSrc: IMG_DOSA },
     { id: 3, title: "Sandwitch", imgSrc: IMG_SANDWITCH },
     { id: 4, title: "Chole", imgSrc: IMG_CHOLE },
-    { id: 5, title: "Chole", imgSrc: IMG_CAKE },
+    { id: 5, title: "Pizza", imgSrc: IMG_PIZZA },
+  ]
+
+  let restData = [
+    { id: 1, title: "White Dosa", imgSrc: IMG_WHITEDOSA },
+    { id: 2, title: "Pizza hut", imgSrc: IMG_PIZZAHOT },
+    { id: 3, title: "Dosa", imgSrc: IMG_DOSA1 },
+    { id: 4, title: "Domino's pizza", imgSrc: IMG_DOMINOSPIZZA },
+    { id: 5, title: "Curry", imgSrc: IMG_CURRY },
   ]
 
   let soringData = [
@@ -58,7 +65,7 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.header} className='flex-row justify-between items-center'>
           <View className='flex-row justify-start items-center'>
             <Ionicons name="ios-location-sharp" size={40} color={COLORS.RED} />
-            <View>
+            <View style={{ width: width - 100 }}>
               <Text style={styles.headerText} className="font-bold">Azad Nagar </Text>
               <Text style={styles.headerText}>Nav Indraprasth CHS, Mulund East, Mumbai</Text>
             </View>
@@ -74,7 +81,7 @@ const HomeScreen = ({ navigation }) => {
               // onChangeText={setNumber}
               // value={number}
               placeholder="Search for dishes, resturants & groceries"
-              keyboardType="numeric"
+              // keyboardType="numeric"
               placeholderTextColor={COLORS.LIGHT_GREY}
               maxLength={10}
             />
@@ -97,7 +104,7 @@ const HomeScreen = ({ navigation }) => {
 
         {/* ALL RESTURANRTS */}
         <View style={{}}>
-          <Text className='text-center mb-6' style={{color : COLORS.BLACK, fontFamily:"Poppins-Medium"}}>ALL RESTURANT</Text>
+          <Text className='text-center mb-6' style={{ color: COLORS.BLACK, fontFamily: "Poppins-Medium" }}>ALL RESTURANT</Text>
 
           {/* SORTING SECTION */}
           <View className="px-3">
@@ -105,18 +112,13 @@ const HomeScreen = ({ navigation }) => {
               data={soringData}
               renderItem={({ item }) => <SortComponent title={item.title} />}
               keyExtractor={(item) => item.id}
-              contentContainerStyle={{paddingBottom : 15}}
+              contentContainerStyle={{ paddingBottom: 15 }}
             />
           </View>
 
           {/* FOODS CONTAINER */}
           <View style={styles.restaurantContainer}>
-            <RestaurantComponent title="Pizza Hut" imgSrc={IMG_PIZZAHOT} />
-            <RestaurantComponent title="PLS Restaurant" imgSrc={IMG_DOMINOSPIZZA} />
-            <RestaurantComponent title="McDonald's" imgSrc={IMG_CURRY} />
-            <RestaurantComponent title="Simply South" imgSrc={IMG_DOSA1} />
-            <RestaurantComponent title="Domino's Pizza" imgSrc={IMG_DOMINOSPIZZA} />
-            <RestaurantComponent title="Curry Mahal" imgSrc={IMG_CURRY} />
+            {restData.map((d, i) => <RestaurantComponent title={d.title} key={i} imgSrc={d.imgSrc} />)}
           </View>
 
         </View>
@@ -141,7 +143,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 15,
     paddingHorizontal: 10,
-    color : COLORS.BLACK
+    color: COLORS.BLACK
   },
   searchContainer: {
     // backgroundColor: COLORS.RED,

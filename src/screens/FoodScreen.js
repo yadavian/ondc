@@ -1,10 +1,8 @@
-import { Image, StyleSheet, Text, View, FlatList } from 'react-native'
+import { StyleSheet, Text, View, FlatList } from 'react-native'
 import React from 'react'
 import SortComponent from '../components/SortComponent'
 import { COLORS } from '../constants/Colors';
 import FoodComponent from '../components/FoodComponent';
-
-
 import IMG_CHICKEN2 from '../assets/images/foods/chicken2.jpg'
 import IMG_FOOD from '../assets/images/foods/food.jpg'
 import IMG_FOOD1 from '../assets/images/foods/food1.jpg'

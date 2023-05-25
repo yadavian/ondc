@@ -1,18 +1,22 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { COLORS } from '../constants/Colors'
+import { useNavigation } from '@react-navigation/native'
 
 const CategoryComponent = (props) => {
+    const navigation = useNavigation()
     const { imgSrc, title } = props;
     return (
-        <View style={styles.categoriesItem}>
+        <TouchableOpacity
+            onPress={() => navigation.navigate("FoodScreen")}
+            style={styles.categoriesItem}>
             <Image
                 source={imgSrc}
                 resizeMethod='scale'
                 style={styles.image}
             />
             <Text className="font-black text-center py-2">{title}</Text>
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -27,8 +31,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 15
     },
-    categoriesItem:{
-        marginTop : 20,
-        marginHorizontal : 12
+    categoriesItem: {
+        marginTop: 20,
+        marginHorizontal: 12
     }
 })
