@@ -22,8 +22,8 @@ import RestaurantComponent from '../components/RestaurantComponent';
 
 const { width, height } = Dimensions.get('window')
 
-
 const HomeScreen = ({ navigation }) => {
+
   useEffect(() => {
     navigation.setOptions({
       headerShown: false

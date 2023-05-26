@@ -3,15 +3,25 @@ import React from 'react'
 import { COLORS } from '../constants/Colors'
 import AntDesign from 'react-native-vector-icons/dist/AntDesign';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { setIsLoggedIn } from '../redux/slices/loginSlice';
+import { setCart } from '../redux/slices/cartSlice';
 
 const { width, height } = Dimensions.get('window')
 
 const RestaurantComponent = (props) => {
   const { imgSrc, title } = props
   const navigation = useNavigation();
+
+  const dispatch = useDispatch()
+
   return (
 
-    <TouchableOpacity onPress={() => navigation.navigate("FoodScreen")} style={styles.restaurantItem}>
+    <TouchableOpacity onPress={() => {
+      dispatch(setIsLoggedIn(true))
+      dispatch(setCart({ id: 111 }))
+      navigation.navigate("FoodScreen")
+    }} style={styles.restaurantItem}>
       <Image
         source={imgSrc}
         resizeMethod='auto'

@@ -59,6 +59,12 @@
 		<string>Poppins-Regular.ttf</string>
 		<string>Poppins-SemiBold.ttf</string>
 		<string>Abel-Regular.ttf</string>
+		<string>AsapCondensed-Bold.ttf</string>
+		<string>AsapCondensed-ExtraBold.ttf</string>
+		<string>AsapCondensed-ExtraBoldItalic.ttf</string>
+		<string>AsapCondensed-Medium.ttf</string>
+		<string>AsapCondensed-Regular.ttf</string>
+		<string>AsapCondensed-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>

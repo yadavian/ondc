@@ -13,5 +13,6 @@ Text.defaultProps.style = {
     fontFamily: 'Poppins-Regular',
     color: COLORS.BLACK
 }
+Text.defaultProps.allowFontScaling=false
 
 AppRegistry.registerComponent(appName, () => App);

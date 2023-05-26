@@ -6,6 +6,30 @@
       "sha1": "260d7d8387b6ef09074921f5ea66a5c68be48956"
     },
     {
+      "path": "src/assets/fonts/AsapCondensed-Bold.ttf",
+      "sha1": "ffdd0dc7018e2c9807816d703ebbaef21d733f0c"
+    },
+    {
+      "path": "src/assets/fonts/AsapCondensed-ExtraBold.ttf",
+      "sha1": "77a7f7fe19e503ae02071325d5fc6ace774822a1"
+    },
+    {
+      "path": "src/assets/fonts/AsapCondensed-ExtraBoldItalic.ttf",
+      "sha1": "ebeabe0f55543995854c40eaa390173d1eec2d93"
+    },
+    {
+      "path": "src/assets/fonts/AsapCondensed-Medium.ttf",
+      "sha1": "840f1f87c233363e793c725bd7617c58f2e561da"
+    },
+    {
+      "path": "src/assets/fonts/AsapCondensed-Regular.ttf",
+      "sha1": "2bb93a5e1c06d35a7ff9a829849439cca23e665c"
+    },
+    {
+      "path": "src/assets/fonts/AsapCondensed-SemiBold.ttf",
+      "sha1": "4476744349af56dffef6b0489b74f2e6b7802567"
+    },
+    {
       "path": "src/assets/fonts/Poppins-Bold.ttf",
       "sha1": "3bc8164396c3e6c1e4fae0cf2a51ea66381c1c2d"
     },

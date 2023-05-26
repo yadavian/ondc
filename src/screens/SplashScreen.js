@@ -3,11 +3,13 @@ import React, { useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { COLORS } from '../constants/Colors';
 import IMG_LOGO from '../assets/images/icons/logo.jpg'
-import { TEXTS } from '../constants/TEXTS';
+import { TEXTS } from '../constants/TEXTS'; 
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
 const SplashScreen = () => {
     const navigation = useNavigation();
+ 
+
     useEffect(() => {
         navigation.setOptions({
             headerShown: false

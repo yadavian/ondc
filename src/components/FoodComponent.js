@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.RED,
     paddingVertical: 5,
     marginHorizontal: 25,
+    paddingHorizontal : 15,
     marginTop: -20,
     elevation: 10
 
