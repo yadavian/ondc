@@ -19,10 +19,19 @@ import IMG_DOSA1 from '../assets/images/restaurant/dosa.jpg'
 import IMG_DOMINOSPIZZA from "../assets/images/restaurant/domino_s_pizza.jpg"
 import IMG_CURRY from '../assets/images/restaurant/curry.jpg'
 import RestaurantComponent from '../components/RestaurantComponent';
+import { useSelector } from 'react-redux';
+import { store } from '../redux/store';
 
 const { width, height } = Dimensions.get('window')
 
+
 const HomeScreen = ({ navigation }) => {
+
+  // const login = useSelector(state => state.login)
+  // console.log('login', login)
+
+  // console.log('--------Store.getState()', store.getState())
+
 
   useEffect(() => {
     navigation.setOptions({
