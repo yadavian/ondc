@@ -23,7 +23,7 @@ const RestaurantComponent = (props) => {
       navigation.navigate("FoodScreen")
     }} style={styles.restaurantItem}>
       <Image
-        source={imgSrc}
+        source={{ uri: imgSrc }}
         resizeMethod='auto'
         style={styles.restaurantImage}
       />

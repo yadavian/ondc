@@ -4,12 +4,12 @@ import { COLORS } from '../constants/Colors'
 import { TEXTS } from '../constants/TEXTS'
 import { globalStyle } from '../Styles'
 import CartComponent from '../components/CartComponent'
-import IMG_CHICKEN2 from '../assets/images/foods/chicken2.jpg'
 import AntDesign from 'react-native-vector-icons/dist/AntDesign';
+import { IMAGES } from '../constants/Images'
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
 
-const PaymentScreen = ({navigation}) => {
+const PaymentScreen = ({ navigation }) => {
 
     let paymentData = [
         {
@@ -62,7 +62,9 @@ const PaymentScreen = ({navigation}) => {
                                 <View className="flex-row px-5" style={styles.cartComp}>
                                     <View>
                                         <Image
-                                            source={IMG_CHICKEN2}
+                                            source={{
+                                                uri: IMAGES.FOODS[0].PANEER_BIRYANI,
+                                            }}
                                             resizeMethod='auto'
                                             style={styles.restaurantImage}
                                         />

@@ -20,7 +20,7 @@ const FoodComponent = ({ foodItem }) => {
 
   return (
     <>
-      <TouchableOpacity onPress={()=>setIsVisible(true)} style={styles.foodItem}>
+      <TouchableOpacity onPress={() => setIsVisible(true)} style={styles.foodItem}>
 
         <View className="py-5 pl-5 flex-col justify-between flex-1">
           <View className="">
@@ -42,7 +42,8 @@ const FoodComponent = ({ foodItem }) => {
 
         <View className="flex-col justify-center">
           <Image
-            source={foodItem.imgSrc}
+            // source={foodItem.imgSrc}
+            source={{ uri: foodItem.imgSrc }}
             resizeMethod='auto'
             style={styles.restaurantImage}
           />
@@ -108,7 +109,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.RED,
     paddingVertical: 5,
     marginHorizontal: 25,
-    paddingHorizontal : 15,
+    paddingHorizontal: 15,
     marginTop: -20,
     elevation: 10
 

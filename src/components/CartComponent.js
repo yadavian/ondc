@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native'
 import React, { useState } from 'react'
 import { COLORS } from '../constants/Colors'
-import IMG_CHICKEN2 from '../assets/images/foods/chicken2.jpg'
 import AntDesign from 'react-native-vector-icons/dist/AntDesign';
+import { IMAGES } from '../constants/Images';
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
 const CartComponent = () => {
@@ -13,7 +13,9 @@ const CartComponent = () => {
         <View className="flex-row mx-2 my-3" style={styles.cartComp}>
             <View>
                 <Image
-                    source={IMG_CHICKEN2}
+                    source={{
+                        uri: IMAGES.FOODS[0].PANEER_BIRYANI,
+                    }}
                     resizeMethod='auto'
                     style={styles.restaurantImage}
                 />

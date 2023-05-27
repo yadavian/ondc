@@ -1,11 +1,7 @@
 import { StyleSheet, Text, View, Dimensions, TouchableOpacity, ScrollView, Image } from 'react-native'
 import React from 'react'
-import { COLORS } from '../constants/Colors'
-import { TEXTS } from '../constants/TEXTS'
-import { globalStyle } from '../Styles'
-import CartComponent from '../components/CartComponent'
-import IMG_CHICKEN2 from '../assets/images/foods/chicken2.jpg'
-import AntDesign from 'react-native-vector-icons/dist/AntDesign';
+import { COLORS } from '../constants/Colors' 
+import { globalStyle } from '../Styles' 
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
 

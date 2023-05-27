@@ -33,7 +33,7 @@ const FoodDescCmp = ({ foodItem, isVisible, setIsVisible }) => {
             <View className="flex-row items-center justify-between" style={styles.topDesc}>
                 <View className='flex-row items-center justify-between' style={{ flex: 0.5 }}>
                     <Image
-                        source={foodItem.imgSrc}
+                        source={{ uri: foodItem.imgSrc }}
                         resizeMethod='auto'
                         style={styles.restaurantImageLogo}
                     />
@@ -51,7 +51,7 @@ const FoodDescCmp = ({ foodItem, isVisible, setIsVisible }) => {
 
                 <View style={styles.foodDesc}>
                     <Image
-                        source={foodItem.imgSrc}
+                        source={{ uri: foodItem.imgSrc }}
                         resizeMethod='auto'
                         style={styles.restaurantImage}
                     />

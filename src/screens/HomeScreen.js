@@ -7,20 +7,20 @@ import SortComponent from '../components/SortComponent';
 import Ionicons from 'react-native-vector-icons/dist/Ionicons';
 import FontAwesome from 'react-native-vector-icons/dist/FontAwesome';
 
-import IMG_CAKE from '../assets/images/categories/cake.jpg'
-import IMG_PIZZA from '../assets/images/categories/pizza.jpg'
-import IMG_DOSA from '../assets/images/categories/dosa.jpg'
-import IMG_CHOLE from '../assets/images/categories/chole.jpg'
-import IMG_SANDWITCH from '../assets/images/categories/sandwitch.jpg'
+// import IMG_CAKE from '../assets/images/categories/cake.jpg'
+// import IMG_PIZZA from '../assets/images/categories/pizza.jpg'
+// import IMG_DOSA from '../assets/images/categories/dosa.jpg'
+// import IMG_CHOLE from '../assets/images/categories/chole.jpg'
+// import IMG_SANDWITCH from '../assets/images/categories/sandwitch.jpg'
 
-import IMG_WHITEDOSA from '../assets/images/restaurant/white_dosa.jpg'
-import IMG_PIZZAHOT from '../assets/images/restaurant/pizza_hut.jpg'
-import IMG_DOSA1 from '../assets/images/restaurant/dosa.jpg'
-import IMG_DOMINOSPIZZA from "../assets/images/restaurant/domino_s_pizza.jpg"
-import IMG_CURRY from '../assets/images/restaurant/curry.jpg'
+// import IMG_WHITEDOSA from '../assets/images/restaurant/white_dosa.jpg'
+// import IMG_PIZZAHOT from '../assets/images/restaurant/pizza_hut.jpg'
+// import IMG_DOSA1 from '../assets/images/restaurant/dosa.jpg'
+// import IMG_DOMINOSPIZZA from "../assets/images/restaurant/domino_s_pizza.jpg"
+// import IMG_CURRY from '../assets/images/restaurant/curry.jpg'
+
 import RestaurantComponent from '../components/RestaurantComponent';
-import { useSelector } from 'react-redux';
-import { store } from '../redux/store';
+import { IMAGES } from '../constants/Images';
 
 const { width, height } = Dimensions.get('window')
 
@@ -40,19 +40,19 @@ const HomeScreen = ({ navigation }) => {
   }, [])
 
   let categoryData = [
-    { id: 1, title: "Cake", imgSrc: IMG_CAKE },
-    { id: 2, title: "dosa", imgSrc: IMG_DOSA },
-    { id: 3, title: "Sandwitch", imgSrc: IMG_SANDWITCH },
-    { id: 4, title: "Chole", imgSrc: IMG_CHOLE },
-    { id: 5, title: "Pizza", imgSrc: IMG_PIZZA },
+    { id: 1, title: "Cake", imgSrc: IMAGES.CATEGORIES[0].CAKE },
+    { id: 2, title: "dosa", imgSrc: IMAGES.CATEGORIES[0].DOSA },
+    { id: 3, title: "Sandwitch", imgSrc: IMAGES.CATEGORIES[0].SANDWITCH },
+    { id: 4, title: "Chole", imgSrc: IMAGES.CATEGORIES[0].CHOLE },
+    { id: 5, title: "Pizza", imgSrc: IMAGES.CATEGORIES[0].PIZZA },
   ]
 
   let restData = [
-    { id: 1, title: "White Dosa", imgSrc: IMG_WHITEDOSA },
-    { id: 2, title: "Pizza hut", imgSrc: IMG_PIZZAHOT },
-    { id: 3, title: "Dosa", imgSrc: IMG_DOSA1 },
-    { id: 4, title: "Domino's pizza", imgSrc: IMG_DOMINOSPIZZA },
-    { id: 5, title: "Curry", imgSrc: IMG_CURRY },
+    { id: 1, title: "White Dosa", imgSrc: IMAGES.RESTAURANTS[0].WHITEDOSA },
+    { id: 2, title: "Pizza hut", imgSrc: IMAGES.RESTAURANTS[0].PIZZAHOT },
+    { id: 3, title: "Dosa", imgSrc: IMAGES.RESTAURANTS[0].DOSA1 },
+    { id: 4, title: "Domino's pizza", imgSrc: IMAGES.RESTAURANTS[0].DOMINOSPIZZA },
+    { id: 5, title: "Curry", imgSrc: IMAGES.RESTAURANTS[0].CURRY },
   ]
 
   let soringData = [

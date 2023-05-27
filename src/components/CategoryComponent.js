@@ -11,11 +11,11 @@ const CategoryComponent = (props) => {
             onPress={() => navigation.navigate("FoodScreen")}
             style={styles.categoriesItem}>
             <Image
-                source={imgSrc}
+                source={{ uri: imgSrc }}
                 resizeMethod='scale'
                 style={styles.image}
             />
-            <Text className="font-black text-center py-2">{title}</Text>
+            <Text className="font-black text-center py-2">{title}44444</Text>
         </TouchableOpacity>
     )
 }
