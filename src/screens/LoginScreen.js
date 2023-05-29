@@ -6,6 +6,7 @@ import { COLORS } from '../constants/Colors';
 import IMG_Ondc from '../assets/images/icons/logo.jpg'
 import IMG_google from '../assets/images/icons/google.jpg'
 import { TEXTS } from '../constants/TEXTS';
+import { ROUTES } from '../constants/Routes';
 
 
 const LoginScreen = ({ navigation }) => {
@@ -44,7 +45,7 @@ const LoginScreen = ({ navigation }) => {
                     />
                     <TouchableOpacity
                         style={styles.continueButton}
-                        onPress={() => navigation.navigate('OTPVerification')}
+                        onPress={() => navigation.navigate(ROUTES.OTPVerification)}
                     >
                         {/* <Icon name="rocket" size={30} color="#900" /> */}
                         <Text className="text-white text-2xl" style={{ fontFamily: 'Poppins-ExtraBold' }}>{TEXTS.continue}</Text>
@@ -53,7 +54,7 @@ const LoginScreen = ({ navigation }) => {
                     <View style={styles.hrLine} />
 
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('OTPVerification')}>
+                        onPress={() => navigation.navigate(ROUTES.OTPVerification)}>
                         <Image
                             source={IMG_google}
                             resizeMethod='auto'

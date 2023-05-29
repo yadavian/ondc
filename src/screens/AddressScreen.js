@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { COLORS } from '../constants/Colors'
 import { TEXTS } from '../constants/TEXTS'
 import AddressCmp from '../components/AddressCmp'
+import { ROUTES } from '../constants/Routes'
 
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
@@ -68,10 +69,10 @@ const AddressScreen = ({ navigation }) => {
             <View>
                 <TouchableOpacity style={styles.foodCancel} className="flex-row items-center justify-center">
                     <TouchableOpacity
-                        onPress={() => navigation.navigate("PaymentScreen")}
+                        onPress={() => navigation.navigate(ROUTES.PaymentScreen)}
                         className='flex-row items-center justify-center'
                         style={{ backgroundColor: COLORS.RED, width: "100%", paddingVertical: 20 }}>
-                        <Text className="text-white text-2xl font-bold uppercase">{TEXTS.continue} To Pay</Text>
+                        <Text className="text-white font-bold uppercase">{TEXTS.continue} To Pay</Text>
                     </TouchableOpacity>
                 </TouchableOpacity>
             </View>

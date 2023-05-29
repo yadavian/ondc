@@ -3,9 +3,10 @@ import React, { useState } from 'react'
 import { COLORS } from '../constants/Colors'
 import AntDesign from 'react-native-vector-icons/dist/AntDesign';
 import { IMAGES } from '../constants/Images';
+import { FONT_SIZE } from '../constants/Font';
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
-const CartComponent = () => {
+const CartComponent = ({ cartItem }) => {
 
     const [count, setCount] = useState(0)
 
@@ -14,7 +15,7 @@ const CartComponent = () => {
             <View>
                 <Image
                     source={{
-                        uri: IMAGES.FOODS[0].PANEER_BIRYANI,
+                        uri: cartItem.imgSrc,
                     }}
                     resizeMethod='auto'
                     style={styles.restaurantImage}
@@ -22,18 +23,18 @@ const CartComponent = () => {
             </View>
             <View className="flex-row justify-between items-center pl-5 " style={{ flex: 1 }}>
                 <View>
-                    <Text style={styles.remainingRestaurantText}>Paneer</Text>
-                    <Text style={{ color: COLORS.BLACK }}>12.00</Text>
-                    <Text>Foods, DELIVERY</Text>
-                    <Text>MULUND  • 2km</Text>
+                    <Text style={styles.remainingRestaurantText}>{cartItem.title}</Text>
+                    <Text style={{ color: COLORS.DESC_COLOR }}>{cartItem.orderTime}</Text>
+                    <Text style={{ color: COLORS.DESC_COLOR }}>Foods, DELIVERY</Text>
+                    <Text style={{ color: COLORS.DESC_COLOR }}>{cartItem.restLocaion}  • {cartItem.distance}</Text>
                 </View>
-                <View>
+                {/* <View>
                     <View className="flex-row items-center justify-between">
                         <AntDesign name="minussquare" size={25} color={COLORS.RED} style={{ marginTop: -3 }} onPress={() => { if (count > 0) { setCount(count - 1) } }} />
                         <Text style={{ fontSize: 22, color: COLORS.BLACK, fontWeight: 700, paddingHorizontal: 15, marginTop: -3 }}>{count}</Text>
                         <AntDesign name="plussquare" size={25} color={COLORS.RED} style={{ marginTop: -3 }} onPress={() => setCount(count + 1)} />
                     </View>
-                </View>
+                </View> */}
             </View>
         </View>
     )
@@ -54,8 +55,8 @@ const styles = StyleSheet.create({
         borderRadius: 30,
     },
     remainingRestaurantText: {
-        fontSize: 22,
-        color: COLORS.BLACK,
-        fontFamily: "Poppins-Bold",
+        fontSize: FONT_SIZE.h1,
+        color: COLORS.TITLE_COLOR,
+        fontFamily: "Poppins-Medium",
     },
 })

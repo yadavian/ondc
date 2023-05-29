@@ -6,10 +6,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2';
 
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
+import homeReducer from './slices/homeSlice';
 
 const rootReducer = combineReducers({
     login: loginReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    home: homeReducer,
 });
 
 const persistConfig = {
@@ -18,7 +20,7 @@ const persistConfig = {
     timeout: null,
     storage: AsyncStorage,
     stateReconciler: autoMergeLevel2,
-    whitelist: ['login'], //Things u want to persist
+    whitelist: ['login','home','cart'], //Things u want to persist
     blacklist: ['user'], //Things u dont
 };
 

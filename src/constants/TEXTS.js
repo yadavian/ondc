@@ -1,7 +1,7 @@
 let TEXTS = {
     restaurants: 'Restaurants',
     foodRest: "Food & Restaurants",
-    letsPay: "Let's pay only for Food",
+    letsPay: "Pay only for Food",
     loginOrSign: "Login in or Sign up",
     continue: "Continue",
     placeOrder: "Place Order",

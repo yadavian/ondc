@@ -1,6 +1,7 @@
 import { StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { COLORS } from '../constants/Colors'
+import { ROUTES } from '../constants/Routes';
 
 const OTPVerification = ({ navigation }) => {
 
@@ -11,7 +12,7 @@ const OTPVerification = ({ navigation }) => {
     // }, [])
 
     setTimeout(() => {
-        navigation.navigate('HomeScreen')
+        navigation.navigate(ROUTES.HomeScreen)
     }, 1000);
 
     return (
@@ -32,7 +33,7 @@ const OTPVerification = ({ navigation }) => {
                 />
                 <TouchableOpacity
                     style={styles.continueButton}
-                    onPress={() => navigation.navigate('HomeScreen')}>
+                    onPress={() => navigation.navigate(ROUTES.HomeScreen)}>
                     {/* <Icon name="rocket" size={30} color="#900" /> */}
                     <Text className="text-white" style={styles.buttonText}>Resend SMS in 15</Text>
                 </TouchableOpacity>

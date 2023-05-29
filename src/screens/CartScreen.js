@@ -3,18 +3,24 @@ import React from 'react'
 import { COLORS } from '../constants/Colors'
 import { TEXTS } from '../constants/TEXTS'
 import CartComponent from '../components/CartComponent'
+import { useSelector } from 'react-redux'
+import { ROUTES } from '../constants/Routes'
 
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
 
 const CartScreen = ({ navigation }) => {
+
+
+    const { cartItems } = useSelector(state => state.cart)
+
     return (
         <View style={styles.container}>
             <ScrollView>
 
                 <View style={styles.cartContainer}>
                     {/* Cart Items */}
-                    <CartComponent />
+                    {cartItems.map((d, i) => <CartComponent cartItem={d} key={i} />)}
                     {/* <CartComponent /> */}
                 </View>
 
@@ -23,10 +29,10 @@ const CartScreen = ({ navigation }) => {
             <View>
                 <TouchableOpacity style={styles.foodCancel} className="flex-row items-center justify-center">
                     <TouchableOpacity
-                        onPress={() => navigation.navigate("AddressScreen")}
+                        onPress={() => navigation.navigate(ROUTES.AddressScreen)}
                         className='flex-row items-center justify-center'
                         style={{ backgroundColor: COLORS.RED, width: "100%", paddingVertical: 20 }}>
-                        <Text className="text-white text-2xl font-bold uppercase">{TEXTS.placeOrder}</Text>
+                        <Text className="text-white font-bold uppercase">{TEXTS.placeOrder}</Text>
                     </TouchableOpacity>
                 </TouchableOpacity>
             </View>

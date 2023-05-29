@@ -2,19 +2,23 @@ import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, ScrollView
 import React from 'react'
 import { COLORS } from '../constants/Colors'
 import AntDesign from 'react-native-vector-icons/dist/AntDesign';
-import { useNavigation } from '@react-navigation/native';
-import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native'; 
+import { useDispatch } from 'react-redux';
+import { setAddCartItem, setCartReset } from '../redux/slices/cartSlice';
+import { ROUTES } from '../constants/Routes';
+import { FONT_SIZE } from '../constants/Font';
 
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
 
-const FoodDescCmp = ({ foodItem, isVisible, setIsVisible }) => {
+const FoodDescCmp = ({ foodItem, isVisible, setIsVisible, count, setCount }) => {
     const navigation = useNavigation()
+    const dispatch = useDispatch()
     const handle_goToCheckout = () => {
-        navigation.navigate("CartScreen")
+        setCount(count + 1)
+        dispatch(setAddCartItem(foodItem))
+        navigation.navigate(ROUTES.CartScreen)
     }
-
-    const [count, setCount] = useState(0)
 
     return (
         <View style={styles.container}>
@@ -40,11 +44,13 @@ const FoodDescCmp = ({ foodItem, isVisible, setIsVisible }) => {
                     <Text style={styles.foodTitle}>{foodItem.title}</Text>
                 </View>
 
-                <View className="flex-row items-center justify-between">
+                {/* <View className="flex-row items-center justify-between">
                     <AntDesign name="minussquare" size={25} color={COLORS.RED} style={{ marginTop: -3 }} onPress={() => { if (count > 0) { setCount(count - 1) } }} />
                     <Text style={{ fontSize: 22, color: COLORS.BLACK, fontWeight: 700, paddingHorizontal: 15, marginTop: -3 }}>{count}</Text>
                     <AntDesign name="plussquare" size={25} color={COLORS.RED} style={{ marginTop: -3 }} onPress={() => setCount(count + 1)} />
-                </View>
+                </View> */}
+
+                {/* <IncDcrCom count={count} setCount={setCount} foodId={foodItem.id} /> */}
             </View>
 
             <ScrollView>
@@ -59,9 +65,9 @@ const FoodDescCmp = ({ foodItem, isVisible, setIsVisible }) => {
 
                 <View style={styles.foodDescription}>
                     <Text style={styles.remainingRestaurantText}>{foodItem.title}</Text>
-                    <Text className="pl-1" style={{ color: COLORS.BLACK }}>{foodItem.orderTime}</Text>
-                    <Text>{foodItem.tags}</Text>
-                    <Text>{foodItem.restLocaion}  •{foodItem.distance}</Text>
+                    <Text style={{color : COLORS.DESC_COLOR}} className="pl-1">{foodItem.orderTime}</Text>
+                    <Text style={{color : COLORS.DESC_COLOR}}>{foodItem.tags}</Text>
+                    <Text style={{color : COLORS.DESC_COLOR}}>{foodItem.restLocaion}  • {foodItem.distance}</Text>
                     <View style={styles.freeDelivery} className="items-center">
                         <AntDesign name="checkcircle" size={10} color={COLORS.WHITE} />
                         <Text style={styles.freeDeliveryText}>FREE DELIVERY</Text>
@@ -72,16 +78,20 @@ const FoodDescCmp = ({ foodItem, isVisible, setIsVisible }) => {
 
             <TouchableOpacity style={styles.foodCancel} className="flex-row items-center justify-center">
                 <TouchableOpacity
-                    onPress={() => setIsVisible(false)}
+                    onPress={() => {
+                        dispatch(setCartReset([]))
+                        setIsVisible(false)
+                        setCount(0)
+                    }}
                     className='flex-row items-center justify-center'
                     style={{ backgroundColor: COLORS.RED, width: "50%", paddingVertical: 20 }}>
-                    <Text className="text-white text-2xl font-bold uppercase">Cancel</Text>
+                    <Text className="text-white text-1xl font-bold uppercase">Clear </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     onPress={handle_goToCheckout}
                     className='flex-row items-center justify-center'
                     style={{ backgroundColor: COLORS.LIGHT_GREEN, width: "50%", paddingVertical: 20 }}>
-                    <Text className="text-white text-2xl font-bold uppercase">Add To Cart</Text>
+                    <Text className="text-white text-1xl font-bold uppercase">Proceed to Cart</Text>
                 </TouchableOpacity>
             </TouchableOpacity>
 
@@ -104,8 +114,8 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
     },
     restaurantImageLogo: {
-        height: WIDTH - 353,
-        width: WIDTH - 353,
+        height: WIDTH - 300,
+        width: WIDTH - 300,
         borderRadius: 30,
     },
     restaurantImage: {
@@ -114,9 +124,11 @@ const styles = StyleSheet.create({
         borderRadius: 30,
     },
     foodTitle: {
-        fontWeight: 700,
-        color: COLORS.BLACK,
-        marginLeft: 25
+        // fontWeight: 700,
+        fontFamily : "Poppins-Medium",
+        color: COLORS.TITLE_COLOR,
+        marginLeft: 25,
+        fontSize : FONT_SIZE.h1
     },
     foodDesc: {
         backgroundColor: COLORS.WHITE,
@@ -140,9 +152,9 @@ const styles = StyleSheet.create({
     },
 
     remainingRestaurantText: {
-        fontSize: 22,
-        color: COLORS.BLACK,
-        fontFamily: "Poppins-Bold",
+        fontSize : FONT_SIZE.h1,
+        color: COLORS.TITLE_COLOR,
+        fontFamily: "Poppins-Medium",
     },
     freeDelivery: {
         backgroundColor: COLORS.LIGHT_GREEN,
@@ -152,10 +164,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignContent: 'center',
         justifyContent: 'flex-start',
-        marginTop: 3
+        marginTop: 5
     },
     freeDeliveryText: {
-        fontFamily: "Poppins-Bold",
+        fontFamily: "Poppins-Medium",
         color: COLORS.WHITE,
         paddingHorizontal: 5
     },

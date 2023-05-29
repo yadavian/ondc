@@ -5,12 +5,13 @@ import AntDesign from 'react-native-vector-icons/dist/AntDesign';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import { setIsLoggedIn } from '../redux/slices/loginSlice';
-import { setCart } from '../redux/slices/cartSlice';
+import { ROUTES } from '../constants/Routes';
+import { FONT_SIZE } from '../constants/Font';
 
 const { width, height } = Dimensions.get('window')
 
-const RestaurantComponent = (props) => {
-  const { imgSrc, title } = props
+const RestaurantComponent = ({restItem}) => {
+  const { imgSrc, title, desc } = restItem
   const navigation = useNavigation();
 
   const dispatch = useDispatch()
@@ -19,8 +20,8 @@ const RestaurantComponent = (props) => {
 
     <TouchableOpacity onPress={() => {
       dispatch(setIsLoggedIn(true))
-      dispatch(setCart({ id: 111 }))
-      navigation.navigate("FoodScreen")
+      // dispatch(setCart({ id: 111 }))
+      navigation.navigate(ROUTES.FoodScreen)
     }} style={styles.restaurantItem}>
       <Image
         source={{ uri: imgSrc }}
@@ -35,7 +36,7 @@ const RestaurantComponent = (props) => {
             <AntDesign name="star" size={10} color={COLORS.WHITE} />
           </View>
         </View>
-        <Text>Pizza - Italian - 3000 for one</Text>
+        <Text style={{color : COLORS.DESC_COLOR}}>{desc}</Text>
         {/* <Text>50 - 70 min - 3km - Free Delivery</Text> */}
         {/* <Text>30 - 40 min | Free Caramal Custard</Text> */}
       </View>
@@ -66,9 +67,9 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 30
   },
   restaurantTitle: {
-    fontFamily: 'Poppins-SemiBold',
-    color: COLORS.BLACK,
-    fontSize: 24
+    fontFamily: 'Poppins-Medium',
+    color: COLORS.TITLE_COLOR,
+    fontSize: FONT_SIZE.h1
   },
   restaurantRating: {
     backgroundColor: COLORS.GREEN,

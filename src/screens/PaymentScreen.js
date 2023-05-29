@@ -6,6 +6,7 @@ import { globalStyle } from '../Styles'
 import CartComponent from '../components/CartComponent'
 import AntDesign from 'react-native-vector-icons/dist/AntDesign';
 import { IMAGES } from '../constants/Images'
+import { ROUTES } from '../constants/Routes'
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
 
@@ -121,10 +122,10 @@ const PaymentScreen = ({ navigation }) => {
             <View>
                 <TouchableOpacity style={styles.foodCancel} className="flex-row items-center justify-center">
                     <TouchableOpacity
-                        onPress={() => navigation.navigate("SorryScreen")}
+                        onPress={() => navigation.navigate(ROUTES.SorryScreen)}
                         className='flex-row items-center justify-center'
                         style={{ backgroundColor: COLORS.RED, width: "100%", paddingVertical: 20 }}>
-                        <Text className="text-white text-2xl font-bold uppercase">Proceed To Pay</Text>
+                        <Text className="text-white  font-bold uppercase">Proceed To Pay</Text>
                     </TouchableOpacity>
                 </TouchableOpacity>
             </View>

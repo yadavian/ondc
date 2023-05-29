@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View, Dimensions, TouchableOpacity, ScrollView, Image } from 'react-native'
 import React from 'react'
-import { COLORS } from '../constants/Colors' 
-import { globalStyle } from '../Styles' 
+import { COLORS } from '../constants/Colors'
+import { globalStyle } from '../Styles'
+import { ROUTES } from '../constants/Routes'
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
 
@@ -26,7 +27,7 @@ const SorryScreen = ({ navigation }) => {
 
             <ScrollView>
                 <View style={{ padding: 25 }}>
-                    <Text style={[globalStyle.mainTitle, { fontSize: 50, textAlign: 'center' }]}>Coming soon</Text>
+                    <Text style={[globalStyle.mainTitle, { fontSize: 25, textAlign: 'center' }]}>Coming soon</Text>
                 </View>
 
                 {sorryData.map((d, i) => {
@@ -49,10 +50,10 @@ const SorryScreen = ({ navigation }) => {
             <View>
                 <TouchableOpacity style={styles.foodCancel} className="flex-row items-center justify-center">
                     <TouchableOpacity
-                        onPress={() => navigation.navigate("HomeScreen")}
+                        onPress={() => navigation.navigate(ROUTES.HomeScreen)}
                         className='flex-row items-center justify-center'
                         style={{ backgroundColor: COLORS.RED, width: "100%", paddingVertical: 20 }}>
-                        <Text className="text-white text-2xl font-bold uppercase">Home</Text>
+                        <Text className="text-white  font-bold uppercase">Home</Text>
                     </TouchableOpacity>
                 </TouchableOpacity>
             </View>

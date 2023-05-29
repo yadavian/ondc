@@ -1,5 +1,5 @@
-import { StatusBar, StyleSheet, Text, View, TextInput, FlatList, ScrollView, Dimensions } from 'react-native'
-import React, { useEffect } from 'react'
+import { StatusBar, StyleSheet, Text, View, TextInput, FlatList, ScrollView, Dimensions, Alert } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { COLORS } from '../constants/Colors'
 import CategoryComponent from '../components/CategoryComponent';
 import SortComponent from '../components/SortComponent';
@@ -7,30 +7,39 @@ import SortComponent from '../components/SortComponent';
 import Ionicons from 'react-native-vector-icons/dist/Ionicons';
 import FontAwesome from 'react-native-vector-icons/dist/FontAwesome';
 
-// import IMG_CAKE from '../assets/images/categories/cake.jpg'
-// import IMG_PIZZA from '../assets/images/categories/pizza.jpg'
-// import IMG_DOSA from '../assets/images/categories/dosa.jpg'
-// import IMG_CHOLE from '../assets/images/categories/chole.jpg'
-// import IMG_SANDWITCH from '../assets/images/categories/sandwitch.jpg'
-
-// import IMG_WHITEDOSA from '../assets/images/restaurant/white_dosa.jpg'
-// import IMG_PIZZAHOT from '../assets/images/restaurant/pizza_hut.jpg'
-// import IMG_DOSA1 from '../assets/images/restaurant/dosa.jpg'
-// import IMG_DOMINOSPIZZA from "../assets/images/restaurant/domino_s_pizza.jpg"
-// import IMG_CURRY from '../assets/images/restaurant/curry.jpg'
+// import IMG_CAKE from '../assets/images/categories/cake.jpg' 
 
 import RestaurantComponent from '../components/RestaurantComponent';
 import { IMAGES } from '../constants/Images';
+import { useDispatch, useSelector } from 'react-redux';
+import { setReset } from '../redux/slices/homeSlice';
+import { ROUTES } from '../constants/Routes';
+import AwesomeAlertCmp from '../components/AwesomeAlertCmp';
+import { FONT_FAMILY, FONT_SIZE } from '../constants/Font';
 
 const { width, height } = Dimensions.get('window')
 
 
 const HomeScreen = ({ navigation }) => {
+  // console.log('--------Store.getState()', store.getState().cart)
+  const { restaurants, foods } = useSelector(state => state.home)
+  const dispatch = useDispatch()
+  const [showAlert, setShowAlert] = useState(true)
 
-  // const login = useSelector(state => state.login)
-  // console.log('login', login)
+  useEffect(() => {
+    dispatch(setReset())
+    // Alert.alert( 'Development Version',  
+    // `This is development verioon, We are coming soon. You won't able to order any food for now. we are launching this app very soon.`,  
 
-  // console.log('--------Store.getState()', store.getState())
+    // [  
+    //     {  
+    //         text: 'Cancel',  
+    //         onPress: () => console.log('Cancel Pressed'),  
+    //         style: 'cancel',  
+    //     },  
+    //     // {text: 'OK', onPress: () => console.log('OK Pressed')},  
+    // ]  )
+  }, [])
 
 
   useEffect(() => {
@@ -41,18 +50,10 @@ const HomeScreen = ({ navigation }) => {
 
   let categoryData = [
     { id: 1, title: "Cake", imgSrc: IMAGES.CATEGORIES[0].CAKE },
-    { id: 2, title: "dosa", imgSrc: IMAGES.CATEGORIES[0].DOSA },
+    { id: 2, title: "Dosa", imgSrc: IMAGES.CATEGORIES[0].DOSA },
     { id: 3, title: "Sandwitch", imgSrc: IMAGES.CATEGORIES[0].SANDWITCH },
     { id: 4, title: "Chole", imgSrc: IMAGES.CATEGORIES[0].CHOLE },
     { id: 5, title: "Pizza", imgSrc: IMAGES.CATEGORIES[0].PIZZA },
-  ]
-
-  let restData = [
-    { id: 1, title: "White Dosa", imgSrc: IMAGES.RESTAURANTS[0].WHITEDOSA },
-    { id: 2, title: "Pizza hut", imgSrc: IMAGES.RESTAURANTS[0].PIZZAHOT },
-    { id: 3, title: "Dosa", imgSrc: IMAGES.RESTAURANTS[0].DOSA1 },
-    { id: 4, title: "Domino's pizza", imgSrc: IMAGES.RESTAURANTS[0].DOMINOSPIZZA },
-    { id: 5, title: "Curry", imgSrc: IMAGES.RESTAURANTS[0].CURRY },
   ]
 
   let soringData = [
@@ -67,6 +68,15 @@ const HomeScreen = ({ navigation }) => {
   return (
 
     <>
+      <AwesomeAlertCmp
+        showAlert={showAlert}
+        setShowAlert={setShowAlert}
+        messageStyle={styles.messageStyle}
+        titleStyle={styles.titleStyle}
+        title="Development version"
+        confirmText= "Close"
+        message={`App is in Development phase. You won't able to order any food for now.\n\nWe are launching this App very soon.`}
+      />
       <StatusBar backgroundColor={COLORS.WHITE} barStyle="dark-content" />
       <ScrollView className='flex-1' style={styles.container}>
 
@@ -75,8 +85,8 @@ const HomeScreen = ({ navigation }) => {
           <View className='flex-row justify-start items-center'>
             <Ionicons name="ios-location-sharp" size={40} color={COLORS.RED} />
             <View style={{ width: width - 100 }}>
-              <Text style={styles.headerText} className="font-bold">Azad Nagar </Text>
-              <Text style={styles.headerText}>Nav Indraprasth CHS, Mulund East, Mumbai</Text>
+              <Text style={styles.headerText} className="font-bold">CSTM Terminus</Text>
+              <Text style={[styles.headerText, { color: COLORS.DESC_COLOR }]}>Nav Indraprasth CHS, Kolaba </Text>
             </View>
           </View>
           <FontAwesome name="user-circle" size={40} color={COLORS.LIGHT_GREY} />
@@ -87,11 +97,11 @@ const HomeScreen = ({ navigation }) => {
           <View style={styles.serachView} className="flex-row items-center justify-between">
             <TextInput
               style={styles.input}
-              onChangeText={() => navigation.navigate('FoodScreen')}
+              onChangeText={() => navigation.navigate(ROUTES.FoodScreen)}
               // value={number}
               placeholder="Search for dishes, resturants & groceries"
               // keyboardType="numeric"
-              placeholderTextColor={COLORS.LIGHT_GREY}
+              placeholderTextColor={COLORS.DESC_COLOR}
               maxLength={10}
             />
             <FontAwesome name="search" size={20} color={COLORS.RED} />
@@ -127,7 +137,7 @@ const HomeScreen = ({ navigation }) => {
 
           {/* FOODS CONTAINER */}
           <View style={styles.restaurantContainer}>
-            {restData.map((d, i) => <RestaurantComponent title={d.title} key={i} imgSrc={d.imgSrc} />)}
+            {restaurants?.map((d, i) => <RestaurantComponent restItem={d} key={i} />)}
           </View>
 
         </View>
@@ -152,7 +162,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 15,
     paddingHorizontal: 10,
-    color: COLORS.BLACK
+    color: COLORS.TITLE_COLOR
   },
   searchContainer: {
     // backgroundColor: COLORS.RED,
@@ -183,5 +193,16 @@ const styles = StyleSheet.create({
     marginTop: 0,
     backgroundColor: COLORS.LIGHT_GREY1
   },
+  messageStyle: {
+    fontSize: FONT_SIZE.p,
+    color: COLORS.DESC_COLOR,
+    fontFamily: FONT_FAMILY.POPPINNS.BOLD
+  },
+  titleStyle: {
+    fontSize: FONT_SIZE.h1,
+    color: COLORS.RED,
+    fontFamily: FONT_FAMILY.POPPINNS.EXTRA_BOLD_ITALIC
+    
+  }
 
 })
